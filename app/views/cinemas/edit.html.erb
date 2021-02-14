@@ -1,0 +1,18 @@
+<h2>映画編集</h2>
+<%= form_with(model: @cinema, local: true, url: cinema_path ) do |form| %>
+  <% if @cinema.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @cinema.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @cinema.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= form.label :title %>
+  <%= form.text_field :title %><br>
+  <%= form.label :url %>
+  <%= form.text_field :url %><br>
+  <input type="submit" name="commit" value="映画を編集する" data-disable-with="映画を編集中･･･">
+<% end %>

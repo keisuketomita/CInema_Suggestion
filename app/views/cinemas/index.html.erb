@@ -1,0 +1,19 @@
+<h1>映画一覧</h1>
+<p><%= notice %></p>
+<table>
+  <tr>
+    <th>投稿内容</th>
+    <th>ユーザー</th>
+  </tr>
+  <% @cinemas.each do |cinema| %>
+    <tr>
+      <td><%= cinema.title %></td>
+      <td><%= cinema.url %></td>
+      <td> <%= link_to '詳細', cinema_path(cinema.id) %></td>
+      <td> <%= link_to '編集', edit_cinema_path(cinema.id) %></td>
+      <td> <%= link_to '削除', cinema_path(cinema.id), method: :delete,
+        data: { confirm: '本当に削除していいですか？' } %></td>
+
+    </tr>
+  <% end %>
+</table>
