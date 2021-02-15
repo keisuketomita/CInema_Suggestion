@@ -1,16 +1,21 @@
-<h1>映画一覧</h1>
-<%= link_to '映画投稿', new_cinema_path, class: "btn btn-primary" %>
+<h1>ユーザー詳細</h1>
+<p>name : <%= @user.name %></p>
+<% if @user == current_user %>
+  <p>email : <%= @user.email %></p>
+<% end %>
+<p>投稿数 : <%= @user.cinemas.count %></p>
+<% if @user == current_user %>
+  <p><%= link_to 'プロフィールを編集', edit_user_path(@user.id), class: "btn btn-outline-warning" %></p>
+<% end %>
 <table>
   <tr>
     <th>タイトル</th>
     <th>url</th>
-    <th>投稿者</th>
   </tr>
   <% @cinemas.each do |cinema| %>
     <tr>
       <td> <%= cinema.title %></td>
       <td> <%= cinema.url.truncate(10) %></td>
-      <td> <%= link_to "#{cinema.user.name}", user_path(cinema.user.id) %></td>
       <td> <%= link_to '詳細', cinema_path(cinema.id) %></td>
       <% if cinema.user_id == current_user.id %>
         <td> <%= link_to '編集', edit_cinema_path(cinema.id) %></td>

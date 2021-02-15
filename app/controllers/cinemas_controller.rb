@@ -1,15 +1,17 @@
 class CinemasController < ApplicationController
   before_action :set_cinema, only: [:edit, :update, :destroy, :show]
   before_action :authenticate_user!
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+
   def index
     @cinemas = Cinema.all
-    # @cinemas = current_user.cinemas
   end
   def new
     @cinema = Cinema.new
   end
   def create
     @cinema = Cinema.new(cinema_params)
+    @cinema.user_id = current_user.id
     if @cinema.save
       redirect_to cinemas_path, notice:"映画を登録しました"
     else
@@ -38,5 +40,10 @@ class CinemasController < ApplicationController
   end
   def set_cinema
     @cinema = Cinema.find(params[:id])
+  end
+  def ensure_correct_user
+    if @cinema.user_id != current_user.id
+      redirect_to cinemas_path, notice: "他人の投稿を編集・削除することはできません"
+    end
   end
 end
