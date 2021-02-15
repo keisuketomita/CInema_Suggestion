@@ -1,6 +1,11 @@
 ---
 ja:
   activerecord:
+    attributes:
+      user:
+        name: 名前
+      cinema:
+        title: タイトル
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

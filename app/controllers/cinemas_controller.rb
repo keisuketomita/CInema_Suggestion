@@ -1,7 +1,9 @@
 class CinemasController < ApplicationController
   before_action :set_cinema, only: [:edit, :update, :destroy, :show]
+  before_action :authenticate_user!
   def index
     @cinemas = Cinema.all
+    # @cinemas = current_user.cinemas
   end
   def new
     @cinema = Cinema.new
