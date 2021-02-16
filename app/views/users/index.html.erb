@@ -1,0 +1,14 @@
+<h3>ユーザー一覧</h3>
+<table>
+  <tr>
+    <th>ユーザー名</th>
+    <th>映画投稿数</th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.cinemas.count %></td>
+      <td> <%= link_to '詳細', user_path(user.id) %></td>
+    </tr>
+  <% end %>
+</table>

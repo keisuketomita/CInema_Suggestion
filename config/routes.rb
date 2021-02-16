@@ -1,3 +1,17 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'relationships/create'
+  get 'relationships/destroy'
+  root 'cinemas#index'
+  # root to: 'users#show'
+  resources :relationships, only: [:create, :destroy]
+  devise_for :users
+  resources :cinemas do
+    collection do
+      get :suggestion
+    end
+  end
+  resources :users, only: [:index, :new, :edit, :update, :show]
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 end
