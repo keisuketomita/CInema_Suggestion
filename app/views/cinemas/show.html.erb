@@ -1,4 +1,4 @@
-<h1>映画詳細</h1>
-<p>title : <%= @cinema.title %>  </p>
-<p>url : <%= @cinema.url %>  </p>
-<p>投稿者 : <%= @cinema.user.name %>  </p>
+<h3>映画詳細</h3>
+<p>title : <%= @cinema.title %> </p>
+<p>url : <%= link_to @cinema.url, @cinema.url, target: :_blank %> </p>
+<p>投稿者 : <%= link_to @cinema.user.name, user_path(@cinema.user.id) %> </p>

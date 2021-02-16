@@ -4,7 +4,8 @@ class CinemasController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @cinemas = Cinema.all
+    @q = Cinema.all.order(updated_at: "DESC").ransack(params[:q])
+    @cinemas = @q.result(distinct: true)
   end
   def new
     @cinema = Cinema.new
@@ -32,6 +33,9 @@ class CinemasController < ApplicationController
     redirect_to cinemas_path, notice: "映画を削除しました"
   end
   def show
+  end
+  def suggestion
+    @cinema = current_user.cinemas.order("RANDOM()").first
   end
 
   private

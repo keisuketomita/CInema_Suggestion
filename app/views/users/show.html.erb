@@ -1,4 +1,4 @@
-<h1>ユーザー詳細</h1>
+<h3>ユーザー詳細</h3>
 <p>name : <%= @user.name %></p>
 <% if @user == current_user %>
   <p>email : <%= @user.email %></p>
@@ -13,12 +13,10 @@
 <table>
   <tr>
     <th>タイトル</th>
-    <th>url</th>
   </tr>
   <% @cinemas.each do |cinema| %>
     <tr>
       <td> <%= cinema.title %></td>
-      <td> <%= cinema.url.truncate(10) %></td>
       <td> <%= link_to '詳細', cinema_path(cinema.id) %></td>
       <% if cinema.user_id == current_user.id %>
         <td> <%= link_to '編集', edit_cinema_path(cinema.id) %></td>
