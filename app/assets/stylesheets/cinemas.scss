@@ -1,3 +1,210 @@
-// Place all the styles related to the cinemas controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+html {
+  position: relative;
+  min-height: 100%;
+  text-align: center;
+  font-size: 16px
+}
+body {
+  text-align: center;
+  background-size: content;
+  background-color: #fafafa;
+}
+h1 {
+  text-align: center;
+}
+a {
+  color: #000000;
+}
+a:hover {
+  color: #000000;
+}
+.navbar {
+  border-bottom: solid 1px #c0c0c0;
+  text-align: center;
+  width: 80%;
+  height: 40px;
+  min-height: 0;
+  margin: auto
+}
+.table {
+  width: 50%;
+  margin: 0 auto;
+  vertical-align: middle;
+  > tbody > tr > td {
+    vertical-align: middle;
+  }
+}
+
+.link {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+nav > a {
+  font-size: 1.5rem;
+  padding: 0 1rem;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+nav > a:hover {
+  text-decoration: none;
+}
+nav > a::after {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: #333;
+  transform: scale(0, 1);
+  transform-origin: center top;
+  transition: transform .3s;
+}
+nav > a:hover::after {
+  transform: scale(1, 1);
+}
+
+#error_explanation > h2 {
+  font-size: 1.2rem;
+}
+.alert {
+  margin: 0;
+  padding-bottom: 0;
+}
+form, #follow_form_3 {
+  display: inline;
+}
+.btn {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+}
+.btn-follow {
+  color: #8899a6;
+
+}
+.btn-unfollow {
+  color: #ff2581;
+}
+.btn-heart {
+  border-style: none;
+  background-color: #fafafa;
+}
+.btn-heart:focus {
+  outline: none;
+}
+
+.btn-outline-secondary {
+  color: #6c757d;
+  border: solid 1px #6c757d;
+}
+.btn-outline-secondary:hover {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+// .btn-outline-warning {
+//   color: #FF9900;
+//   border: solid 1px #FF9900;
+//   background-color: #fff;
+// }
+// .btn-outline-warning:hover {
+//   color: #fff;
+//   background-color: #FF9900;
+//   border-color: #FF9900;
+// }
+.btn-warning {
+  color: #fff;
+  border: solid 1px #FF9900;
+  background-color: #FF9900;
+}
+.btn-warning:hover {
+  color: #fff;
+  border: solid 1px #FF9900;
+  background-color: #FF9900;
+  opacity: 0.7;
+}
+
+.btn-outline-primary {
+  color: #007bff;
+  border: solid 1px #007bff;
+  background-color: #fff;
+}
+.btn-outline-primary:hover {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #007bff;
+  opacity: 0.8;
+}
+.btn-outline-success {
+  color: #28a745;
+  border: solid 1px #28a745;
+  background-color: #fff;
+}
+.btn-outline-success:hover {
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+}
+.btn-outline-danger {
+  color: #ff0000;
+  border: solid 1px #ff0000;
+  background-color: #fff;
+}
+.btn-outline-danger:hover {
+  color: #fff;
+  background-color: #ff0000;
+}
+.suggestion {
+  font-size: 3rem;
+
+}
+
+/* Material iconsを利用する */
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* 推奨サイズ */
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  text-transform: none;
+
+  /* WebKitブラウザサポート */
+  -webkit-font-smoothing: antialiased;
+  /* Chrome、Safariサポート */
+  text-rendering: optimizeLegibility;
+
+  /* Firefoxサポート */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* IEサポート */
+  font-feature-settings: 'liga';
+}
+
+/* アイコンサイズ */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+/* 背景が明るいとき用のアイコン色 */
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* 背景が暗いとき用のアイコン色 */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }

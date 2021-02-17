@@ -7,24 +7,28 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
   <body>
     <h1>Cinema Suggestion</h1>
-    <% if user_signed_in? %>
-      <%= link_to "映画一覧", cinemas_path %>
-      <%= link_to "おすすめ", suggestion_cinemas_path %>
-      <%= link_to "マイページ", user_path(current_user.id) %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "新規登録", new_user_registration_path %>
-      <%= link_to "ログイン", new_user_session_path %>
-    <% end %>
+    <nav class="navbar">
+      <% if user_signed_in? %>
+        <%= link_to "映画一覧", cinemas_path %>
+        <%= link_to "おすすめ", suggestion_cinemas_path %>
+        <%= link_to "マイページ", user_path(current_user.id) %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path %>
+        <%= link_to "Log in", new_user_session_path %>
+      <% end %>
+    </nav>
     <% if notice %>
-      <p class="alert alert-notice"><%= notice %></p>
+    <p class="alert alert-notice"><%= notice %></p>
     <% end %>
     <% if alert %>
-      <p class="alert alert-error"><%= alert %></p>
+    <p class="alert alert-error"><%= alert %></p>
     <% end %>
     <%= yield %>
   </body>

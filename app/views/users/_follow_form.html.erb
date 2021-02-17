@@ -1,12 +1,16 @@
-<div id="follow_form_<%= user.id %>">
+<div id="follow_form_<%= user.id %>", >
   <% unless current_user.following?(user) %>
     <%= form_with(model: current_user.active_relationships.build(followed_id: user.id)) do |f| %>
       <%= f.hidden_field :followed_id %>
-      <%= f.submit "  follow  " %>
+      <%= f.button :type => "submit", class: "btn-heart" do %>
+        <i class="far fa-heart fa-2x btn-follow"></i>
+      <% end %>
     <% end %>
   <% else %>
     <%= form_with(model: current_user.active_relationships.find_by(followed_id: user.id), method: :delete ) do |f| %>
-      <%= f.submit "unfollow" %>
+      <%= f.button :type => "submit", class: "btn-heart" do %>
+        <i class="fas fa-heart fa-2x btn-unfollow"></i>
+      <% end %>
     <% end %>
   <% end %>
 </div>
