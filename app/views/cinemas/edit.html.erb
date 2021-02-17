@@ -10,9 +10,14 @@
       </ul>
     </div>
   <% end %>
-  <%= form.label :title %>
-  <%= form.text_field :title %><br>
-  <%= form.label :url %>
-  <%= form.text_field :url %><br>
-  <input type="submit" name="commit" value="映画を編集する" data-disable-with="映画を編集中･･･">
+  <div class="field">
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </div>
+  <div class="field">
+    <%= form.label :url %><br>
+    <%= form.text_field :url %><br>
+  </div>
+
+  <%= form.submit "編集する", class: "btn btn-warning" %>
 <% end %>
