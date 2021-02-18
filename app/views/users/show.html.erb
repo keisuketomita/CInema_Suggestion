@@ -10,21 +10,46 @@
 <% if @user == current_user %>
   <p><%= link_to 'プロフィールを編集', edit_user_path(@user.id), class: "btn btn-warning" %></p>
 <% end %>
-<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th>タイトル</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @cinemas.each do |cinema| %>
-      <tr>
-        <td> <%= cinema.title %></td>
-        <td> <%= link_to '詳細', cinema_path(cinema.id), class: "btn btn-outline-primary" %></td>
-        <td> <%= link_to '編集', edit_cinema_path(cinema.id), class: "btn btn-outline-success" %></td>
-        <td> <%= link_to '削除', cinema_path(cinema.id), method: :delete,
-          data: { confirm: '本当に削除していいですか？' }, class: "btn btn-outline-danger" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="area">
+  <input type="radio" name="tab_name" id="tab1" checked>
+  <label class="tab_class" for="tab1">投稿作品</label>
+  <div class="content_class">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>タイトル</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @cinemas.each do |cinema| %>
+        <tr>
+          <td> <%= cinema.title %></td>
+          <td> <%= link_to '詳細', cinema_path(cinema.id), class: "btn btn-outline-primary" %></td>
+          <td> <%= link_to '編集', edit_cinema_path(cinema.id), class: "btn btn-outline-success" %></td>
+          <td> <%= link_to '削除', cinema_path(cinema.id), method: :delete,
+            data: { confirm: '本当に削除していいですか？' }, class: "btn btn-outline-danger" %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
+  <input type="radio" name="tab_name" id="tab2" >
+  <label class="tab_class" for="tab2">フォローユーザー</label>
+  <div class="content_class">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>ユーザー</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @followings.each do |user| %>
+          <tr>
+            <td> <%= user.name %></td>
+            <td> <%= link_to '詳細', user_path(user.id), class: "btn btn-outline-primary" %></td>
+            </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
