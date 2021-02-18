@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   end
   def show
     @cinemas = @user.cinemas
+    @followings = @user.following
   end
   private
   def user_params
