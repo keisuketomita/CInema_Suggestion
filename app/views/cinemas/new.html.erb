@@ -11,12 +11,10 @@
 <% end %>
 <%= form_with(model: Cinema.new, local: true) do |form| %>
   <div class="field">
-    <%= form.label :title %><br>
-    <%= form.text_field :title, value: @cinema.title %>
+    <%= form.text_field :title, value: @cinema.title, placeholder: "タイトル", id: "new_title" %>
   </div>
   <div class="field">
-    <%= form.label :url %><br>
-    <%= form.text_field :url, value: @cinema.url %>
+    <%= form.text_field :url, value: @cinema.url, placeholder: "url", id: "new_url"  %>
   </div>
   <%= form.submit "新規投稿", class: "btn btn-primary" %>
 <% end %>

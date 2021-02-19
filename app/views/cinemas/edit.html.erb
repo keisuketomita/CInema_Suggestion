@@ -11,12 +11,10 @@
     </div>
   <% end %>
   <div class="field">
-    <%= form.label :title %><br>
-    <%= form.text_field :title, value: @cinema.title %>
+    <%= form.text_field :title, value: @cinema.title, placeholder: "タイトル", id: "update_title" %>
   </div>
   <div class="field">
-    <%= form.label :url %><br>
-    <%= form.text_field :url, value: @cinema.url %><br>
+    <%= form.text_field :url, value: @cinema.url, placeholder: "url", id: "update_url" %><br>
   </div>
 
   <%= form.submit "編集する", class: "btn btn-warning" %>

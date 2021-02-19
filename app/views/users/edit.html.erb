@@ -11,12 +11,10 @@
   <% end %>
   <h3>ユーザー編集</h3>
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, placeholder: "ユーザー名", id: "update_name" %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
+    <%= f.email_field :email, placeholder: "メールアドレス", id: "update_email"  %>
   </div>
   <button type="submit" name="commit" data-disable-with="編集中･･･" class="btn btn-warning">
     プロフィールを変更

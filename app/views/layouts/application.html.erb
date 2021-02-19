@@ -15,10 +15,10 @@
     <h1>Cinema Suggestion</h1>
     <nav class="navbar">
       <% if user_signed_in? %>
-        <%= link_to "映画一覧", cinemas_path %>
-        <%= link_to "おすすめ", suggestion_cinemas_path %>
-        <%= link_to "マイページ", user_path(current_user.id) %>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <%= link_to "映画一覧", cinemas_path, id: "header_cinema_index" %>
+        <%= link_to "おすすめ", suggestion_cinemas_path, id: "header_cinema_suggestion" %>
+        <%= link_to "マイページ", user_path(current_user.id), id: "header_mypage" %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, id: "header_Logout" %>
       <% else %>
         <%= link_to "Sign up", new_user_registration_path %>
         <%= link_to "Log in", new_user_session_path %>

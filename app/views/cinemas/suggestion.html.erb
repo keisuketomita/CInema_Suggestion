@@ -1,7 +1,7 @@
 <h3>おすすめ検索</h3>
 <% if @cinema.present? %>
   <%= link_to @cinema.title, @cinema.url, class: "suggestion", target: :_blank %><br>
-  <%= link_to('違う映画', 'javascript:void(0);', onclick: "window.location.reload();", class: "btn btn-warning")  %>
+  <%= link_to('違う映画', 'javascript:void(0);', onclick: "window.location.reload();", class: "btn btn-warning", id:"repeat_suggestion")  %>
 <% else %>
   <p>投稿映画数が0のため、おすすめ映画を表示できません</p>
 <% end %>

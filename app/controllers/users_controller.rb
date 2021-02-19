@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     end
   end
   def show
-    @cinemas = @user.cinemas
+    @cinemas = @user.cinemas.order(updated_at: "DESC")
     @followings = @user.following
   end
   private

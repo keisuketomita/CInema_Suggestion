@@ -8,7 +8,7 @@
   <%= render 'follow_form', user: @user %>
 <% end %>
 <% if @user == current_user %>
-  <p><%= link_to 'プロフィールを編集', edit_user_path(@user.id), class: "btn btn-warning" %></p>
+  <p><%= link_to 'プロフィールを編集', edit_user_path(@user.id), class: "btn btn-warning",id: "update_profile" %></p>
 <% end %>
 <div class="area">
   <input type="radio" name="tab_name" id="tab1" checked>
@@ -24,7 +24,7 @@
         <% @cinemas.each do |cinema| %>
         <tr>
           <td> <%= cinema.title %></td>
-          <td> <%= link_to '詳細', cinema_path(cinema.id), class: "btn btn-outline-primary" %></td>
+          <td> <%= link_to '詳細', cinema_path(cinema.id), class: "btn btn-outline-primary", id:"mypage_show" %></td>
           <td> <%= link_to '編集', edit_cinema_path(cinema.id), class: "btn btn-outline-success" %></td>
           <td> <%= link_to '削除', cinema_path(cinema.id), method: :delete,
             data: { confirm: '本当に削除していいですか？' }, class: "btn btn-outline-danger" %></td>
