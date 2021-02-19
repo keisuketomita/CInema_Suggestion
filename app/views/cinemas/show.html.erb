@@ -1,4 +1,4 @@
 <h3>映画詳細</h3>
 <p>タイトル : <%= @cinema.title %> </p>
-<p>url : <%= link_to @cinema.url, @cinema.url, target: :_blank, class: "link" %> </p>
+<p>url : <%= link_to @cinema.url, @cinema.url, target: :_blank, class: "link", id:"show_url" %> </p>
 <p>投稿者 : <%= link_to @cinema.user.name, user_path(@cinema.user.id), class: "link" %> </p>

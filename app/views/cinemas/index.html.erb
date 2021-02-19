@@ -1,8 +1,8 @@
 <h3>映画一覧</h3>
-<%= link_to '映画投稿', new_cinema_path, class: "btn btn-primary" %>
+<%= link_to '映画投稿', new_cinema_path, class: "btn btn-primary", id: "post_cinema" %>
 <%= search_form_for @q do |f| %>
   <%= f.label :title, "タイトルに" %>
-  <%= f.search_field :title_cont %><span>が含まれる映画を</span>
+  <%= f.search_field :title_cont,id: "search_title" %><span>が含まれる映画を</span>
   <%= f.submit "検索" %>
 <% end %>
 
@@ -17,11 +17,11 @@
     <% @cinemas.each do |cinema| %>
       <tr>
         <td> <%= cinema.title %></td>
-        <td> <%= link_to "#{cinema.user.name}", user_path(cinema.user.id), class: "link" %></td>
-        <td class="btn-td"> <%= link_to '詳細', cinema_path(cinema.id), class: "btn btn-outline-primary" %></td>
-        <td class="btn-td"> <%= link_to '編集', edit_cinema_path(cinema.id), class: "btn btn-outline-success" %></td>
+        <td> <%= link_to "#{cinema.user.name}", user_path(cinema.user.id), class: "link", id:"index_user" %></td>
+        <td class="btn-td"> <%= link_to '詳細', cinema_path(cinema.id), class: "btn btn-outline-primary",id: "index_show" %></td>
+        <td class="btn-td"> <%= link_to '編集', edit_cinema_path(cinema.id), class: "btn btn-outline-success",id: "index_edit" %></td>
         <td class="btn-td"> <%= link_to '削除', cinema_path(cinema.id), method: :delete,
-          data: { confirm: '本当に削除していいですか？' }, class: "btn btn-outline-danger" %></td>
+          data: { confirm: '本当に削除していいですか？' }, class: "btn btn-outline-danger",id: "index_delete" %></td>
         </tr>
     <% end %>
   </tbody>
