@@ -111,7 +111,7 @@ RSpec.describe 'ユーザー機能', type: :system do
         expect(page).to have_content 'ユーザー1'
         expect(page).to have_content 'user1@hoge.jp'
         expect(page).to have_link 'プロフィールを編集'
-        choose 'フォローユーザー'
+        find('label[for=tab2]').click
         expect(page).to have_content 'ユーザー2'
         expect(page).to have_content 'ユーザー3'
         expect(page).not_to have_content 'ユーザー5'
